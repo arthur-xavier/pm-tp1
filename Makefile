@@ -17,4 +17,4 @@ test_%:
 	java pm/estacionamento/Main < test/$@/in.txt > test/$@/$@.log
 	diff test/$@/out.txt test/$@/$@.log
 
-test: test_normal test_lotado test_veiculo_invalido
+test: test_normal test_lotado test_invalido

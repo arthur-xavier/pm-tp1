@@ -12,7 +12,11 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         while(scanner.hasNextLine()) {
-            totem.realizarAtendimento(scanner.nextLine());
+            try {
+                System.out.println(totem.realizarAtendimento(scanner.nextLine()));
+            } catch(IllegalArgumentException e) {
+                System.out.println("Entrada invalida");
+            }
         }
     }
 }

@@ -26,7 +26,7 @@ public class Totem {
         this.estacionamento = estacionamento;
     }
 
-    public void realizarAtendimento(String entrada) {
+    public String realizarAtendimento(String entrada) {
 
         Ticket ticket = this.gerarTicket(entrada);
 
@@ -35,27 +35,33 @@ public class Totem {
                 try {
                     ticket.setVaga(this.estacionamento.estacionar(ticket.getVeiculo()));
                     this.tickets.put(ticket.getVeiculo().getPlaca(), ticket);
-                    System.out.println(ticket.getVaga().toString());
+                    return ticket.getVaga().toString();
                 } catch(VagaNaoEncontradaException e) {
-                    System.out.println("LOTADO");
+                    return "LOTADO";
                 }
-                break;
 
             case SAIDA:
                 Ticket ticketEntrada = this.tickets.get(ticket.getVeiculo().getPlaca());
                 if(ticketEntrada != null) {
                     long tempo = ticket.getHorario().getTime() - ticketEntrada.getHorario().getTime();
+
+                    if(tempo < 0) {
+                        throw new IllegalArgumentException("Entrada invalida");
+                    }
+
                     double tempoHoras = tempo / (1000.0*60.0*60.0);
                     Date horas = new Date(tempo);
                     DateFormat df = new SimpleDateFormat("hh:mm");
                     df.setTimeZone(TimeZone.getTimeZone("UTC"));
 
-                    System.out.format("%s;%s;%.2f\n", ticketEntrada.getVaga().getTipo(), df.format(tempo), tempoHoras*ticketEntrada.getVaga().getPreco());
-
                     ticketEntrada.getVaga().setVeiculo(null);
+
+                    return String.format("%s;%s;%.2f", ticketEntrada.getVaga().getTipo(), df.format(tempo), tempoHoras*ticketEntrada.getVaga().getPreco());
                 }
                 break;
         }
+
+        return null;
     }
 
     public IEstacionamento getEstacionamento() {

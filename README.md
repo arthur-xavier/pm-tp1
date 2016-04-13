@@ -14,6 +14,5 @@ make test
 
 ## Documentation
 ```
-cd doc
-pdflatex doc.tex
+make doc
 ```

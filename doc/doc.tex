@@ -19,7 +19,16 @@
 
 % HEADER
 \title{Trabalho Prático 1 - Estacionamento}
-\author{Arthur Xavier Gomes Ribeiro\\xavier@dcc.ufmg.br}
+\author{
+    Arthur Xavier\\
+    \texttt{xavier@dcc.ufmg.br}
+    \and
+    Alexandre Pretti\\
+    \texttt{email@dcc.ufmg.br}
+    \and
+    Vitor\\
+    \texttt{email@dcc.ufmg.br}
+}
 \date{13 de Abril de 2016}
 
 % DOCUMENT
@@ -33,24 +42,52 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introdução}
 
+Este trabalho consiste na implementação de um sistema de alocação de vagas para um estacionamento, visando a automatização do processo de entrada e saída do estabelecimento.
+
+O estacionamento em questão possui quatro níveis e cada nível possui dez vagas, divididas entre motocicletas, veículos pequenos e grandes e vagas para portadores de necessidades especiais.
+
+Ao chegar ao estacionamento, o cliente acessa um totem onde ele informa o tipo do seu carro. O sistema deve então informar se existe ou não vaga disponível que ele pode utilizar, em caso afirmativo, ele deve informar em qual nível e posição essa vaga fica, caso contrário, deve informar LOTADO. As vagas são numeradas sequencialmente de acordo com o nível e tipo de vaga.
+
+Na saída do estacionamento, o cliente deve receber um ticket com o valor que deve ser pago. O custo é calculado de acordo com um valor associado ao tipo da vaga utilizada e à quantidade de tempo.
+
+\newpage
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Implementação
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Implementação}
+
+% Algoritmo de alocação de veículos em vagas sequencial. Os veículos são estacionados sequencialmente em vagas, de forma a escolher a primeira vaga possível, não verificando se haveriam vagas próximas melhores.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % TESTES
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Testes}
 
+Foram criadas três rotinas de teste de aceitação automatizadas baseadas nos critérios especificados pelo problema. As três rotinas de teste criadas visam testar diferentes casos que podem ocorrer durante a execução do programa. O processo de teste implementado possui um arquivo de entrada e um com a saída esperada supondo o correto funcionamento do programa. O programa é, então, executado sobre a entrada fornecida e a saída comparada com o arquivo contendo a saída esperada. Caso haja alguma divergência, o teste falha.
+
+Os três testes implementados foram:
+\begin{enumerate}
+    \item \textbf{Normal -} testa o funcionamento do programa em condições normais, onde nenhum erro ou comportamento tratável ocorre;
+    \item \textbf{Lotado -} testa o comportamento e a reação do programa ao verificar que o estacionamento encontra-se em capacidade máxima e um veículo tenta estacionar;
+    \item \textbf{Inválido -} testa o comportamento do programa quando de uma entrada inválida.
+\end{enumerate}
+
+Os testes possuem cobertura suficiente para atestar o correto funcionamento do programa de acordo com as especificações e suposições.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % CONCLUSÃO
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusão}
 
+O objetivo deste trabalho relativo à disciplina de Programação Modular é buscar compreender e aplicar os conceitos aprendidos em sala de aula quanto a \emph{Orientação a Objetos} e linguagem \emph{Java}. Aplicar estes conceitos em exemplos reais é o que completa o aprendizado. As dificuldades de compreensão do problema, como por exemplo qual algoritmo de alocação de veículos em vagas utilizar foram resolvidas por meio de suposições a fim de completar as lacunas cognitivas abertas pela descrição do problema. O resultado, entretanto, foi além de satisfatório, confirmado pelos testes executados e pela qualidade do código.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % BIBLIOGRAFIA
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Bibliografia}
+
+
 
 \end{document}

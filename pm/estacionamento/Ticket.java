@@ -42,7 +42,6 @@ public class Ticket {
     public Ticket(String tipo, String horario, String placa, String tipoVeiculo) throws ParseException {
         this.tipo = Ticket.Tipo.fromString(tipo);
         this.veiculo = new Veiculo(placa, Veiculo.Tipo.fromString(tipoVeiculo));
-
         DateFormat df = new SimpleDateFormat("hh:mm");
         this.horario = df.parse(horario);
     }

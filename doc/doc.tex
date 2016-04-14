@@ -23,10 +23,10 @@
     \texttt{xavier@dcc.ufmg.br}
     \and
     Alexandre Pretti\\
-    \texttt{email@dcc.ufmg.br}
+    \texttt{alexandre.pretti@dcc.ufmg.br}
     \and
-    Vitor\\
-    \texttt{email@dcc.ufmg.br}
+    Vitor de Melo\\
+    \texttt{vitormelo@dcc.ufmg.br}
 }
 \date{13 de Abril de 2016}
 
@@ -57,6 +57,20 @@ Na saída do estacionamento, o cliente deve receber um ticket com o valor que de
 \section{Implementação}
 
 % Algoritmo de alocação de veículos em vagas sequencial. Os veículos são estacionados sequencialmente em vagas, de forma a escolher a primeira vaga possível, não verificando se haveriam vagas próximas melhores.
+
+O código lê por entrada padrão linha por linha e enquanto tiver linha chama a função realizarAtendimento. A saída também é padrão.
+
+A função totem.realizarAtendimento gera um tipo Ticket. Se está entrando, a vaga é setada através do método estacionar. Pega placa e veículo e retorna uma string com a vaga ou diz que está lotado. Se está saindo, pega a placa e veículo, pega o horário de saída e o horário de entrada e subtrai. Seta a vaga como null para desocupá-la.
+
+A função gerarTicket da classe Totem faz um tokenização da entrada, através das funções Pattern e Matcher da biblioteca jdk (java.util.regex), criando um ticket separando em 4 parâmetros.
+
+A classe Ticket é bem trivial e contém vaga, horário, veículo e o tipo(entrada ou saída).
+
+A classe mãe, Vaga recebe alguns parâmetros e dependendo do tipo de veículo define uma vaga e cada tipo de vaga define seu preço. As filhas são essas definições, portanto se o veículo é um carro grande, um carro pequeno, uma motocicleta, ou um veículo com necessidades especiais, o veículo é alocado em seu lugar correto e é definido pelo preço de sua determinada categoria.
+
+A classe Predio define níveis, e níveis possuem vagas que podem ser dos 4 tipos já citados.
+
+Outras funções, classes, são bem triviais e podem ou não ter sido citadas na documentação com suas funções, mesmo não citando seus nomes em si. Por exemplo a função setVaga definida na classe pública Ticket, que pela implementação é facilmente notada que seta uma vaga. 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

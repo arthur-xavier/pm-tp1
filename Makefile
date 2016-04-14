@@ -9,7 +9,6 @@ clean:
 	rm -rf pm/estacionamento/*.class
 	rm -rf doc/*.aux
 	rm -rf doc/*.log
-	rm -rf doc/*.pdf
 
 run:
 	java pm/estacionamento/Main
@@ -17,7 +16,7 @@ run:
 # Documentação
 doc:
 	pdflatex -output-directory=doc doc/doc.tex
-	cp doc/doc.pdf Estacionamento_ArthurXavier_AlexandrePretti_Vitor.pdf
+	cp doc/doc.pdf Estacionamento_ArthurXavier_AlexandrePretti_VitorMelo.pdf
 
 # Testes
 test_%:
